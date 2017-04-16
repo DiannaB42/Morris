@@ -1,6 +1,7 @@
 #include "board.h"
 
 Board::Board(){
+<
   //constructor for board. Assigns all places 'e' signiying empty, and sets phase to 1
   //and sets move counters to 0.
   phase = 1;
@@ -29,6 +30,8 @@ std::ostream& Board::play(std::ostream& output){
     output << "Player " << player % 2 +1 <<  " won with " << countPieces((player % 2)+1)
 	   << " left on the board.";
       return output;}}
+
+
 
 int Board::countPieces(int player){
   //Counts the number of pieces played by the player. If invalid player id entered,
@@ -113,6 +116,7 @@ char Board::getPlayerSymbol(int player){
   else if (player == 2)
     return 'X';
   return 'b';}
+
 
 std::ostream& Board::move1(int player, std::ostream& output){
   // controls movement in the first part of the game
@@ -604,6 +608,7 @@ int Board::movePiece(int player, int& row, int& column, char move){
     else
       return -1;} }
 
+
 std::ostream& Board::errorMessage(int error, std::ostream& output){
   if(error == 1)
     output << "Row number not in range 1-7\n";
@@ -832,17 +837,16 @@ bool Board::playLocation(int player, int row, int column){
 
 bool Board::removeLocation(int player, int row, int column){
 if(player != 1 && player != 2)
-	return false;
-if(game[row][column] != 'e'){
-  if(player == 1){
-	game[row][column] = 'e';
-	playCounter1--;
-	return true;}
-  else{
-	game[row][column] = 'e';
-	playCounter2--;
-	return true;} } }
-
+  return false;
+ if(game[row][column] != 'e'){
+   if(player == 1){
+     game[row][column] = 'e';
+     playCounter1--;
+     return true;}
+   else{
+     game[row][column] = 'e';
+     playCounter2--;
+     return true;} } }
 
 
 std::ostream& Board::display(std::ostream& output){

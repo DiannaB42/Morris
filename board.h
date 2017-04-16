@@ -17,6 +17,7 @@ public:
 	int movePiece(int, int&, int&, char);
 	int getMaxPieces(){return 9;}
 	bool checkMoves(int, int);
+
 private:
 	int playCounter1;
 	int playCounter2;
@@ -36,6 +37,7 @@ private:
 	std::ostream& errorMessage(int, std::ostream&);
 	std::ostream& errorMessageMills(int, std::ostream&);
 	std::ostream& errorMessage2(int, std::ostream&);
+
 };
 
 
